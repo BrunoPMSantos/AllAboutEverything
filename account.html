@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your account — All About Everything</title>
+  <meta name="description" content="Sign in to, or create, your All About Everything reader account.">
+  <meta name="robots" content="noindex">
+  <meta name="google-adsense-account" content="ca-pub-3044430061127315">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/account.css">
+  <script type="module" src="/js/nav-auth.js"></script>
+  <script type="module" src="/js/account.js"></script>
+</head>
+<body>
+
+  <aside class="dev-notice" role="note" aria-label="Site status">
+    <p><span class="dev-notice-tag">Work in progress</span> This site is under active development &mdash; some pages and features may be unfinished.</p>
+  </aside>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="masthead" href="/">All About <em>Everything</em></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Welcome</a>
+        <a href="/about.html">About</a>
+        <a href="/account.html" aria-current="page" data-auth-link>Sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="account wrap">
+
+    <section class="account-head">
+      <p class="kicker rise">The reader&rsquo;s desk</p>
+      <h1 class="rise d1">Your <em>account.</em></h1>
+      <p class="standfirst rise d2">
+        Sign in to keep your place in the journal. Reading stays free &mdash;
+        an account simply lets us know who&rsquo;s turning the pages.
+      </p>
+    </section>
+
+    <section class="account-card rise d2" aria-live="polite">
+
+      <div class="auth-tabs" id="auth-tabs" role="tablist" hidden>
+        <button type="button" role="tab" data-show="login" aria-selected="true">Sign in</button>
+        <button type="button" role="tab" data-show="signup" aria-selected="false">Create account</button>
+      </div>
+
+      <p class="auth-notice" id="auth-notice" role="status" hidden></p>
+
+      <p class="auth-loading" data-view="loading">Checking the register&hellip;</p>
+
+      <!-- sign in -->
+      <form class="auth-form" id="login-form" data-view="login" hidden>
+        <label>Email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>Password
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button class="auth-submit" type="submit">Sign in</button>
+        <p class="auth-aside"><a href="#" data-goto="forgot">Forgotten your password?</a></p>
+      </form>
+
+      <!-- sign up -->
+      <form class="auth-form" id="signup-form" data-view="signup" hidden>
+        <label>Name
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>Email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>Password
+          <input name="password" type="password" autocomplete="new-password" minlength="8" required>
+        </label>
+        <button class="auth-submit" type="submit">Create account</button>
+        <p class="auth-aside">We&rsquo;ll send a confirmation link to your inbox.</p>
+      </form>
+
+      <!-- forgot password -->
+      <form class="auth-form" id="forgot-form" data-view="forgot" hidden>
+        <h2 class="auth-title">Reset your password</h2>
+        <p class="auth-help">Enter the email you signed up with and we&rsquo;ll send a reset link.</p>
+        <label>Email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <button class="auth-submit" type="submit">Send reset link</button>
+        <p class="auth-aside"><a href="#" data-goto="login">&larr; Back to sign in</a></p>
+      </form>
+
+      <!-- set new password (recovery link) -->
+      <form class="auth-form" id="reset-form" data-view="reset" hidden>
+        <h2 class="auth-title">Choose a new password</h2>
+        <label>New password
+          <input name="password" type="password" autocomplete="new-password" minlength="8" required>
+        </label>
+        <button class="auth-submit" type="submit">Save password</button>
+      </form>
+
+      <!-- accept invite -->
+      <form class="auth-form" id="invite-form" data-view="invite" hidden>
+        <h2 class="auth-title">You&rsquo;re invited</h2>
+        <p class="auth-help">Set a password to finish creating your account.</p>
+        <label>Password
+          <input name="password" type="password" autocomplete="new-password" minlength="8" required>
+        </label>
+        <button class="auth-submit" type="submit">Accept invitation</button>
+      </form>
+
+      <!-- signed in -->
+      <div class="profile" data-view="profile" hidden>
+        <h2 class="auth-title" id="profile-greeting">Welcome back.</h2>
+        <dl class="profile-specs">
+          <div><dt>Email</dt><dd id="profile-email">—</dd></div>
+          <div><dt>Reader since</dt><dd id="profile-since">—</dd></div>
+        </dl>
+        <form class="auth-form" id="profile-form">
+          <label>Display name
+            <input id="profile-name" name="name" type="text" autocomplete="name">
+          </label>
+          <button class="auth-submit" type="submit">Save profile</button>
+        </form>
+        <button class="auth-signout" id="logout-button" type="button">Sign out</button>
+      </div>
+
+      <div class="oauth" id="oauth" hidden>
+        <p class="oauth-rule"><span>or continue with</span></p>
+        <div class="oauth-buttons">
+          <button type="button" data-provider="google" hidden>Google</button>
+          <button type="button" data-provider="github" hidden>GitHub</button>
+          <button type="button" data-provider="gitlab" hidden>GitLab</button>
+          <button type="button" data-provider="bitbucket" hidden>Bitbucket</button>
+          <button type="button" data-provider="facebook" hidden>Facebook</button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>All About <em style="font-style:italic;color:var(--accent)">Everything</em> · Vol. I, No. 47</p>
+      <p><a href="/">Welcome</a> · <a href="/about.html">About</a> · <a href="/account.html">Account</a> · <span class="fin">Set with care, printed weekly</span></p>
+    </div>
+  </footer>
+
+</body>
+</html>
