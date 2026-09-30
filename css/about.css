@@ -1,0 +1,346 @@
+/* ---- about page ----------------------------------------------- */
+
+.page-head {
+  padding-top: clamp(3rem, 7vw, 5.5rem);
+}
+.page-head h1 {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 144;
+  font-weight: 350;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin-top: 1.3rem;
+}
+.page-head h1 em { font-style: italic; font-weight: 500; color: var(--accent); }
+.standfirst {
+  margin-top: 1.5rem;
+  max-width: 36em;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* story grid */
+.about-grid {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.drop-cap > p + p { margin-top: 1.2rem; }
+.drop-cap > p:first-child::first-letter {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 144;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 4.4em;
+  line-height: 0.78;
+  float: left;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--accent);
+}
+.about-main p {
+  font-size: 1.08rem;
+  line-height: 1.72;
+  color: var(--ink);
+}
+.about-main a {
+  color: var(--accent-deep);
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-underline-offset: 3px;
+}
+.about-main a:hover { text-decoration-color: var(--accent); }
+
+.about-aside {
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-raised);
+  padding: 1.8rem 1.6rem;
+  position: relative;
+}
+.about-aside::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+.aside-title {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin-bottom: 1.2rem;
+}
+.specs { display: flex; flex-direction: column; gap: 0.9rem; }
+.spec dt {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.spec dd {
+  font-family: var(--serif-text);
+  font-size: 0.98rem;
+  color: var(--ink);
+  border-bottom: 1px dotted var(--rule-strong);
+  padding-bottom: 0.7rem;
+  margin-top: 0.2rem;
+}
+.spec:last-child dd { border-bottom: 0; padding-bottom: 0; }
+.aside-note { margin-top: 1.4rem; }
+.aside-note a {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-pencil);
+  text-decoration: none;
+}
+.aside-note a:hover { color: var(--accent-deep); }
+
+@media (max-width: 820px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+/* section head (shared look, local copy) */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 3px double var(--rule-strong);
+  padding-bottom: 0.8rem;
+  margin-bottom: 2.2rem;
+}
+.section-head h2 {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 60;
+  font-weight: 500;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+}
+.section-note {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: right;
+}
+
+/* manifesto */
+.manifesto { margin-top: clamp(4rem, 8vw, 6rem); }
+.creed { list-style: none; counter-reset: none; }
+.creed li {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.2rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.creed li:last-child { border-bottom: 0; }
+.creed-num {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.creed h3 {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+}
+.creed p { color: var(--ink-soft); max-width: 44em; }
+
+/* letter */
+.letter {
+  margin-top: clamp(4rem, 8vw, 6rem);
+}
+.letter-body {
+  position: relative;
+  border-top: 3px double var(--rule-strong);
+  border-bottom: 3px double var(--rule-strong);
+  background:
+    repeating-linear-gradient(0deg,
+      transparent 0 34px,
+      color-mix(in srgb, var(--blue-pencil) 7%, transparent) 34px 35px),
+    var(--paper-raised);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  max-width: 820px;
+}
+.letter-mark {
+  position: absolute;
+  top: 0.4rem;
+  left: 1.2rem;
+  font-family: var(--serif-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--rule-strong);
+  user-select: none;
+}
+.letter-text {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.65;
+  font-style: italic;
+  color: var(--ink);
+  max-width: 34em;
+  margin-left: 2rem;
+}
+.letter-sig {
+  margin-top: 1.8rem;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.sig-name {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--blue-pencil);
+}
+.sig-role {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+@media (max-width: 560px) {
+  .letter-mark { display: none; }
+  .letter-text, .letter-sig { margin-left: 0; }
+}
+
+/* masthead roster */
+.masthead-sec { margin-top: clamp(4rem, 8vw, 6rem); }
+.roster {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule-strong);
+  border-left: 1px solid var(--rule-strong);
+}
+.person {
+  border-right: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 1.6rem 1.5rem;
+  transition: background 200ms ease;
+}
+.person:hover { background: var(--paper-raised); }
+.person-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+.initials {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--paper-raised);
+  background: var(--ink);
+  border-radius: 50%;
+}
+.person:nth-child(2) .initials, .person:nth-child(5) .initials { background: var(--accent); }
+.person h3 {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: 1.12rem;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.role {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 0.25rem;
+}
+.person-bio {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+@media (max-width: 900px) { .roster { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .roster { grid-template-columns: 1fr; } }
+
+/* faq */
+.faq { margin-top: clamp(4rem, 8vw, 6rem); }
+.faq-item {
+  border-bottom: 1px solid var(--rule);
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  transition: color 160ms ease;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--mono);
+  font-weight: 400;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { color: var(--accent-deep); }
+.faq-item[open] summary { color: var(--accent-deep); }
+.faq-item p {
+  padding: 0 0 1.3rem;
+  max-width: 46em;
+  color: var(--ink-soft);
+}
+
+/* closing cta */
+.cta {
+  margin-top: clamp(4rem, 8vw, 6.5rem);
+  text-align: left;
+}
+.cta h2 {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 144;
+  font-weight: 350;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.cta h2 em { font-style: italic; font-weight: 500; color: var(--accent); }
+.cta p {
+  margin-top: 1rem;
+  max-width: 30em;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+}
+.cta-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
