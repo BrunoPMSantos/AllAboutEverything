@@ -54,6 +54,28 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* ---- development notice -------------------------------------- */
+.dev-notice {
+  background: var(--ink);
+  color: var(--paper-raised);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  text-align: center;
+  padding: 0.5rem var(--gutter);
+}
+
+.dev-notice-tag {
+  display: inline-block;
+  margin-right: 0.6em;
+  padding: 0.05em 0.5em;
+  background: var(--accent);
+  color: var(--paper-raised);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 /* ---- top bar -------------------------------------------------- */
 .topbar {
   position: sticky;
